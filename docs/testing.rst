@@ -15,7 +15,12 @@ To ensure required test dependencies are present:
 
    $ pip3 install -r tests/requirements.txt
 
-On every commit, those tests are additionally run on GitHub Actions.
+GitHub Actions runs selected tests on configured events. The Linux workflow
+runs for qualifying pull requests, pushes to ``master`` and ``develop``,
+and manual dispatch; paths excluded by that workflow do not trigger it.
+Record the tested commit, platform, marker selection, and skips. Linux CI
+runs separate GUI and reflink checks; results from a platform or filesystem
+without those checks do not substitute for them.
 
 Control Variables
 ~~~~~~~~~~~~~~~~~
